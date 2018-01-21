@@ -1,0 +1,14 @@
+{
+  "name": "social-club",
+  "version": "1.0.0",
+  "description": "a new generation social club web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "app"
+  ],
+  "author": "tppppp",
+  "license": "MIT"
+}
