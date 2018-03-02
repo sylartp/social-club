@@ -1,14 +1,26 @@
 {
-  "name": "social-club",
+  "name": "socialclub",
   "version": "1.0.0",
   "description": "a new generation social club web app",
   "main": "index.js",
-  "scripts": {
-    "test": "npm run test"
-  },
-  "keywords": [
-    "app"
-  ],
+  "repository": "https://github.com/sylartp/social-club/tree/master/front-end",
   "author": "tppppp",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack"
+  },
+  "dependencies": {
+    "moment": "^2.20.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.0.4",
+    "less": "^3.0.1",
+    "less-loader": "^4.0.6",
+    "less-plugin-clean-css": "^1.5.1",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.1"
+  }
 }
