@@ -1,0 +1,13 @@
+{
+    "presets": [
+        "react",
+        "env"
+    ],
+    "plugins": [
+        ["transform-runtime"],
+        ["transform-remove-console"],
+        ["transform-react-constant-elements"],
+        ["transform-react-inline-elements"],
+        ["transform-react-remove-prop-types"]
+    ]
+}
