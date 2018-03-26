@@ -1,72 +1,37 @@
 package com.socialClub.domain;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
+import java.util.Set;
+
 
 /**
  * Created by peng.tian on 2018/3/1
  */
 @Data
-public class User implements UserDetails {
+public class User {
 
     private int id;
+    private String email;
     private String username;
     private String password;
-    private Collection<? extends GrantedAuthority> authorities;
+    private Set<Role> roles;
 
+    public User(){}
 
-    public User(int id, String username, String password){
-        super();
+    public User(int id, String email, String username, String password){
         this.id = id;
+        this.email = email;
         this.username = username;
         this.password = password;
     }
 
-    public User(int id, String username, String password, Collection<? extends GrantedAuthority> authorities){
-        super();
+    public User(int id, String email, String username, String password, Set<Role> roles){
         this.id = id;
+        this.email = email;
+        this.roles = roles;
         this.username = username;
         this.password = password;
-        this.authorities = authorities;
     }
 
-
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
-
-    @Override
-    public String getPassword() {
-        return this.password;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }
