@@ -29,7 +29,7 @@ public class RedisSessionDao extends AbstractSessionDAO {
 
     @Setter
     private IRedisService redisService;
-    private final static String SESSION_PREFIX = "shiro_redis_session:";
+    private final static String SESSION_PREFIX = "shiro_redis:session:";
 
     private String getKey(Session session){
         return SESSION_PREFIX+session.getId().toString();

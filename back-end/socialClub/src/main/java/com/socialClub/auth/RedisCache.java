@@ -15,7 +15,7 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
     private IRedisService redisService;
 
-    private final static String CACHEPREFIX = "shiro_redis_cache:";
+    private final static String CACHEPREFIX = "shiro_redis:cache:";
 
     RedisCache(IRedisService redisService){
         this.redisService = redisService;
