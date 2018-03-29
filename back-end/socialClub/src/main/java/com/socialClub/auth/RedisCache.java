@@ -1,5 +1,6 @@
 package com.socialClub.auth;
 
+import com.socialClub.service.IRedisService;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 
@@ -8,23 +9,33 @@ import java.util.Set;
 
 /**
  * Created by peng.tian on 2018/3/26
+ *
  */
 public class RedisCache<K,V> implements Cache<K,V> {
 
+    private IRedisService redisService;
 
+    private final static String CACHEPREFIX = "shiro_redis_cache:";
 
-    @Override
-    public Object get(Object o) throws CacheException {
-        return null;
+    RedisCache(IRedisService redisService){
+        this.redisService = redisService;
     }
 
     @Override
-    public Object put(Object o, Object o2) throws CacheException {
-        return null;
+    public V get(K key) throws CacheException {
+        return (V) redisService.get(CACHEPREFIX+String.valueOf(key));
     }
 
     @Override
-    public Object remove(Object o) throws CacheException {
+    public V put(K key, V value) throws CacheException {
+        redisService.set(CACHEPREFIX+String.valueOf(key), value);
+        return value;
+    }
+
+    @Override
+    public V remove(K key) throws CacheException {
+
+        redisService.remove(CACHEPREFIX+String.valueOf(key));
         return null;
     }
 
@@ -35,7 +46,7 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
     @Override
     public int size() {
-        return 0;
+        return (int) redisService.dbSize();
     }
 
     @Override
