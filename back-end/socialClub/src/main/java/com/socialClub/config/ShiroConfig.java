@@ -5,6 +5,7 @@ import com.socialClub.auth.ShiroRedisCacheManager;
 import com.socialClub.auth.UserAuthRealm;
 import com.socialClub.dao.shiro.RedisSessionDao;
 import com.socialClub.service.IRedisService;
+import com.socialClub.service.impl.RedisClusterService;
 import com.socialClub.service.impl.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
@@ -80,7 +81,7 @@ public class ShiroConfig {
 
     @Bean
     public IRedisService redisService(){
-        return new RedisService();
+        return new RedisClusterService();
     }
 
     @Bean(name = "shiroFilter")

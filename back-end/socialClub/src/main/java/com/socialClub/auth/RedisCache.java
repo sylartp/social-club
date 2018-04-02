@@ -15,7 +15,7 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
     private IRedisService redisService;
 
-    private final static String CACHEPREFIX = "shiro_redis:cache:";
+    private final static String CACHE_PREFIX = "shiro_redis:cache:";
 
     RedisCache(IRedisService redisService){
         this.redisService = redisService;
@@ -23,19 +23,19 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
     @Override
     public V get(K key) throws CacheException {
-        return (V) redisService.get(CACHEPREFIX+String.valueOf(key));
+        return (V) redisService.get(CACHE_PREFIX+String.valueOf(key));
     }
 
     @Override
     public V put(K key, V value) throws CacheException {
-        redisService.set(CACHEPREFIX+String.valueOf(key), value);
+        redisService.set(CACHE_PREFIX+String.valueOf(key), value);
         return value;
     }
 
     @Override
     public V remove(K key) throws CacheException {
 
-        redisService.remove(CACHEPREFIX+String.valueOf(key));
+        redisService.remove(CACHE_PREFIX+String.valueOf(key));
         return null;
     }
 

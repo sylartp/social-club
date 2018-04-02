@@ -11,8 +11,22 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 # redis standalone
   redis:
-    host: 192.168.186.132
-    port: 6379
+    cluster:
+      nodes:
+        - 192.168.186.132:7001
+        - 192.168.186.132:7002
+        - 192.168.186.132:7003
+        - 192.168.186.132:7004
+        - 192.168.186.132:7005
+        - 192.168.186.132:7006
+      maxIdle: 10
+      minIdle: 5
+      timeout: 3000
+      maxRedirects: 6
+      maxWaitMillis: 2000
+      testOnReturn: true
+      testOnBorrow: true
+
 
 
 # shiro session and authorization cache
